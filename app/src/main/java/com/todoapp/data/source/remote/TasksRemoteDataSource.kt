@@ -45,8 +45,7 @@ object TasksRemoteDataSource : TasksDataSource {
                 is Loading -> Loading
                 is Error -> Error(tasks.exception)
                 is Success -> {
-                    val task = tasks.data.firstOrNull() { it.id == taskId }
-                        ?: return@map Error(Exception("Not found"))
+                    val task = tasks.data.firstOrNull() { it.id == taskId } ?: return@map Error(Exception("Not found"))
                     Success(task)
                 }
             }

@@ -20,6 +20,7 @@ class AddEditTaskViewModel(application: Application) : AndroidViewModel(applicat
     // here. We'll show you how to fix this during the codelab
     private val tasksRepository = DefaultTasksRepository.getRepository(application)
 
+
     // Two-way databinding, exposing MutableLiveData
     val title = MutableLiveData<String>()
 
@@ -65,7 +66,7 @@ class AddEditTaskViewModel(application: Application) : AndroidViewModel(applicat
         viewModelScope.launch {
             tasksRepository.getTask(taskId).let { result ->
                 if (result is Success) {
-                    onTaskLoaded(result.data as Task)
+                    onTaskLoaded(result.data)
                 } else {
                     onDataNotAvailable()
                 }

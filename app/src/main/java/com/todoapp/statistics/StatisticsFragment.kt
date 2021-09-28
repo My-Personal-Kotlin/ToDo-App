@@ -28,13 +28,19 @@ class StatisticsFragment : Fragment() {
             inflater, R.layout.statistics_frag, container,
             false
         )
+
+        viewDataBinding.viewmodel = viewModel
+
+        viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
+
+        this.setupRefreshLayout(viewDataBinding.refreshLayout)
+
         return viewDataBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewDataBinding.viewmodel = viewModel
-        viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
-        this.setupRefreshLayout(viewDataBinding.refreshLayout)
-    }
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//
+//
+//    }
 }

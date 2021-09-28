@@ -15,7 +15,6 @@ import com.todoapp.tasks.ADD_EDIT_RESULT_OK
 import com.todoapp.util.setupRefreshLayout
 import com.todoapp.util.setupSnackbar
 
-
 /**
  * Main UI for the add task screen. Users can enter a task title and description.
  */
@@ -31,20 +30,28 @@ class AddEditTaskFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val root = inflater.inflate(R.layout.addtask_frag, container, false)
+
         viewDataBinding = AddtaskFragBinding.bind(root).apply {
             this.viewmodel = viewModel
         }
+
         // Set the lifecycle owner to the lifecycle of the view
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
+
         return viewDataBinding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         setupSnackbar()
+
         setupNavigation()
+
         this.setupRefreshLayout(viewDataBinding.refreshLayout)
+
         viewModel.start(args.taskId)
     }
 

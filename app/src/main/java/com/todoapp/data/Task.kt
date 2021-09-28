@@ -35,7 +35,6 @@ data class Task @JvmOverloads constructor(
     val titleForList: String
         get() = if (title.isNotEmpty()) title else description
 
-
     val isActive
         get() = !isCompleted
 
