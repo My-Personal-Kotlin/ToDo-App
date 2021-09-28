@@ -47,7 +47,7 @@ ext {
     espressoVersion = '3.5.0-alpha01' // l
     fragmentVersion = '1.1.0-alpha07'
     fragmentKtxVersion = '1.4.0-alpha09' // l
-    hamcrestVersion = '1.3'
+    hamcrestVersion = '1.3' // l
     junitVersion = '4.13.2' // l
     materialVersion = '1.5.0-alpha03' // l
     mockitoVersion = '2.8.9'

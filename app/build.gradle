@@ -51,8 +51,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion" //
     implementation "com.jakewharton.timber:timber:$timberVersion" //
     implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport" //
-    implementation "androidx.room:room-runtime:$roomVersion"
-    implementation 'androidx.test.espresso:espresso-idling-resource:3.4.0'//
+    implementation "androidx.room:room-runtime:$roomVersion" //
+    implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"//
     kapt "androidx.room:room-compiler:$roomVersion" //
 
 
@@ -69,6 +69,7 @@ dependencies {
 
     // Dependencies for local unit tests
     testImplementation "junit:junit:$junitVersion" //
+    testImplementation("org.hamcrest:hamcrest-all:$hamcrestVersion") //
 
     // AndroidX Test - Instrumented testing
     androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion" //

@@ -13,5 +13,7 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+        var result = 2*3
+            assertEquals(6, result)
     }
 }
