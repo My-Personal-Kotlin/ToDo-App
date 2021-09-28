@@ -61,7 +61,7 @@
 
                 </LinearLayout>
             </ScrollView>
-        </com.example.android.architecture.blueprints.todoapp.ScrollChildSwipeRefreshLayout>
+        </com.todoapp.ScrollChildSwipeRefreshLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/save_task_fab"
