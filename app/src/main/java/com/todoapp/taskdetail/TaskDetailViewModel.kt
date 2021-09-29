@@ -30,6 +30,12 @@ class TaskDetailViewModel(application: Application) : AndroidViewModel(applicati
 
     val isDataAvailable: LiveData<Boolean> = _task.map { it != null }
 
+    // This LiveData depends on another so we can use a transformation.
+    val completed: LiveData<Boolean> = _task.map { input: Task? ->
+        input?.isCompleted ?: false
+    }
+
+
     private val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
 
@@ -42,10 +48,6 @@ class TaskDetailViewModel(application: Application) : AndroidViewModel(applicati
     private val _snackbarText = MutableLiveData<Event<Int>>()
     val snackbarText: LiveData<Event<Int>> = _snackbarText
 
-    // This LiveData depends on another so we can use a transformation.
-    val completed: LiveData<Boolean> = _task.map { input: Task? ->
-        input?.isCompleted ?: false
-    }
 
     fun deleteTask() = viewModelScope.launch {
         _taskId.value?.let {

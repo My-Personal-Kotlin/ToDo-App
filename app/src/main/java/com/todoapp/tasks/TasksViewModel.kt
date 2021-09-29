@@ -38,6 +38,12 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
 
     val items: LiveData<List<Task>> = _items
 
+    // This LiveData depends on another so we can use a transformation.
+    val empty: LiveData<Boolean> = Transformations.map(_items) {
+        it.isEmpty()
+    }
+
+
     private val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
 
@@ -69,12 +75,7 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
 
     private var resultMessageShown: Boolean = false
 
-    // This LiveData depends on another so we can use a transformation.
-    val empty: LiveData<Boolean> = Transformations.map(_items) {
-        it.isEmpty()
-    }
-
-    init {
+    init { //
         // Set initial state
         setFiltering(TasksFilterType.ALL_TASKS)
         loadTasks(true)
@@ -87,7 +88,7 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
      * [TasksFilterType.COMPLETED_TASKS], or
      * [TasksFilterType.ACTIVE_TASKS]
      */
-    fun setFiltering(requestType: TasksFilterType) {
+    fun setFiltering(requestType: TasksFilterType) { //
         currentFiltering = requestType
 
         // Depending on the filter type, set the filtering label, icon drawables, etc.
@@ -115,7 +116,7 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
         loadTasks(false)
     }
 
-    private fun setFilter(
+    private fun setFilter( //
         @StringRes filteringLabelString: Int, @StringRes noTasksLabelString: Int,
         @DrawableRes noTaskIconDrawable: Int, tasksAddVisible: Boolean
     ) {
@@ -125,14 +126,14 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
         _tasksAddViewVisible.value = tasksAddVisible
     }
 
-    fun clearCompletedTasks() {
+    fun clearCompletedTasks() { //
         viewModelScope.launch {
             tasksRepository.clearCompletedTasks()
             showSnackbarMessage(R.string.completed_tasks_cleared)
         }
     }
 
-    fun completeTask(task: Task, completed: Boolean) = viewModelScope.launch {
+    fun completeTask(task: Task, completed: Boolean) = viewModelScope.launch { //
         if (completed) {
             tasksRepository.completeTask(task)
             showSnackbarMessage(R.string.task_marked_complete)
@@ -145,18 +146,18 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
     /**
      * Called by the Data Binding library and the FAB's click listener.
      */
-    fun addNewTask() {
+    fun addNewTask() { //
         _newTaskEvent.value = Event(Unit)
     }
 
     /**
      * Called by Data Binding.
      */
-    fun openTask(taskId: String) {
+    fun openTask(taskId: String) { //
         _openTaskEvent.value = Event(taskId)
     }
 
-    fun showEditResultMessage(result: Int) {
+    fun showEditResultMessage(result: Int) { //
         if (resultMessageShown) return
         when (result) {
             EDIT_RESULT_OK -> showSnackbarMessage(R.string.successfully_saved_task_message)
@@ -166,18 +167,18 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
         resultMessageShown = true
     }
 
-    private fun showSnackbarMessage(message: Int) {
+    private fun showSnackbarMessage(message: Int) { //
         _snackbarText.value = Event(message)
     }
 
-    private fun filterTasks(tasksResult: Result<List<Task>>): LiveData<List<Task>> {
+    private fun filterTasks(tasksResult: Result<List<Task>>): LiveData<List<Task>> { //
         // TODO: This is a good case for liveData builder. Replace when stable.
         val result = MutableLiveData<List<Task>>()
 
         if (tasksResult is Success) {
             isDataLoadingError.value = false
             viewModelScope.launch {
-                result.value = filterItems(tasksResult.data as List<Task>, currentFiltering)
+                result.value = filterItems(tasksResult.data, currentFiltering)
             }
         } else {
             result.value = emptyList()
@@ -191,11 +192,11 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
     /**
      * @param forceUpdate   Pass in true to refresh the data in the [TasksDataSource]
      */
-    fun loadTasks(forceUpdate: Boolean) {
+    fun loadTasks(forceUpdate: Boolean) { //
         _forceUpdate.value = forceUpdate
     }
 
-    private fun filterItems(tasks: List<Task>, filteringType: TasksFilterType): List<Task> {
+    private fun filterItems(tasks: List<Task>, filteringType: TasksFilterType): List<Task> { //
             val tasksToShow = ArrayList<Task>()
             // We filter the tasks based on the requestType
             for (task in tasks) {
@@ -212,7 +213,7 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
             return tasksToShow
         }
 
-    fun refresh() {
+    fun refresh() { //
         _forceUpdate.value = true
     }
 }
