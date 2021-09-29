@@ -38,6 +38,12 @@ android {
     buildFeatures {
         dataBinding true
     }
+    // Always show the result of every unit test when running via command line, even if it passes.
+    testOptions.unitTests {
+        includeAndroidResources = true
+
+        // ...
+    }
 }
 
 dependencies {
@@ -78,4 +84,11 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion" //
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion" //
+
+    // AndroidX Test - JVM testing
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion" //
+    testImplementation "org.robolectric:robolectric:$robolectricVersion" //
+    testImplementation"androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion" //
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+
 }

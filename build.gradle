@@ -28,19 +28,19 @@ ext {
     // Sdk and tools
     // Support library and architecture components support minSdk 14 and above.
     minSdkVersion = 14
-    targetSdkVersion = 31
+    targetSdkVersion = 30
     compileSdkVersion = 31
 
     // App dependencies
     androidXVersion = '1.0.0'
-    androidXTestCoreVersion = '1.2.0'
+    androidXTestCoreVersion = '1.4.1-alpha01' // l
     androidXTestExtKotlinRunnerVersion = '1.1.4-alpha01' // l
     androidXTestRulesVersion = '1.2.0-beta01'
     androidXAnnotations = '1.3.0-alpha01' // l
     androidXLegacySupport = '1.0.0' // l
     appCompatVersion = '1.4.0-alpha03' // l
     archLifecycleVersion = '2.2.0'
-    archTestingVersion = '2.0.0'
+    archTestingVersion = '2.1.0' // l
     cardVersion = '1.0.0'
     coroutinesVersion = '1.5.2' // l
     dexMakerVersion = '2.12.1'
@@ -52,7 +52,7 @@ ext {
     materialVersion = '1.5.0-alpha03' // l
     mockitoVersion = '2.8.9'
     recyclerViewVersion = '1.3.0-alpha01' // l
-    robolectricVersion = '4.3.1'
+    robolectricVersion = '4.6.1' // l
     roomVersion = '2.4.0-alpha04' // l
     rulesVersion = '1.0.1'
     timberVersion = '5.0.1' // l
