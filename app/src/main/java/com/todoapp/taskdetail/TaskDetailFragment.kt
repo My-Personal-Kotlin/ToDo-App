@@ -14,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.todoapp.EventObserver
 import com.todoapp.R
+import com.todoapp.data.source.DefaultTasksRepository
 import com.todoapp.databinding.TaskdetailFragBinding
 import com.todoapp.tasks.DELETE_RESULT_OK
 import com.todoapp.util.setupRefreshLayout
@@ -28,7 +29,9 @@ class TaskDetailFragment : Fragment() {
 
     private val args: TaskDetailFragmentArgs by navArgs()
 
-    private val viewModel by viewModels<TaskDetailViewModel>()
+    private val viewModel by viewModels<TaskDetailViewModel>{
+        TaskDetailViewModelFactory(DefaultTasksRepository.getRepository(requireActivity().application))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

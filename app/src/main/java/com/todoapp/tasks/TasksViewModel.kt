@@ -11,16 +11,13 @@ import com.todoapp.data.Task
 import com.todoapp.data.source.DefaultTasksRepository
 import kotlinx.coroutines.launch
 import com.todoapp.data.Result.Success
+import com.todoapp.data.source.TasksRepository
 
 
 /**
  * ViewModel for the task list screen.
  */
-class TasksViewModel(application: Application) : AndroidViewModel(application) {
-
-    // Note, for testing and architecture purposes, it's bad practice to construct the repository
-    // here. We'll show you how to fix this during the codelab
-    private val tasksRepository = DefaultTasksRepository.getRepository(application)
+class TasksViewModel( private val tasksRepository: TasksRepository) : ViewModel() {
 
     private val _forceUpdate = MutableLiveData<Boolean>(false)
 
