@@ -11,6 +11,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.todoapp.EventObserver
 import com.todoapp.R
+import com.todoapp.TodoApplication
 import com.todoapp.data.source.DefaultTasksRepository
 import com.todoapp.databinding.TasksFragBinding
 import com.todoapp.util.setupRefreshLayout
@@ -23,7 +24,7 @@ import timber.log.Timber
 class TasksFragment : Fragment() {
 
     private val viewModel by viewModels<TasksViewModel>{
-        TasksViewModelFactory(DefaultTasksRepository.getRepository(requireActivity().application))
+        TasksViewModelFactory((requireContext().applicationContext as TodoApplication).taskRepository)
     }
 
     private val args: TasksFragmentArgs by navArgs()

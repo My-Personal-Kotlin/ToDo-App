@@ -8,6 +8,10 @@ plugins {
 android {
     compileSdkVersion rootProject.compileSdkVersion
 
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+
     defaultConfig {
         applicationId "com.todoapp"
         minSdkVersion rootProject.minSdkVersion
@@ -41,8 +45,6 @@ android {
     // Always show the result of every unit test when running via command line, even if it passes.
     testOptions.unitTests {
         includeAndroidResources = true
-
-        // ...
     }
 }
 
@@ -91,5 +93,12 @@ dependencies {
     testImplementation"androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion" //
     testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion" //
+
+    // Dependencies for Android instrumented unit tests
+    androidTestImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    implementation "androidx.test:core:$androidXTestCoreVersion"
 
 }
