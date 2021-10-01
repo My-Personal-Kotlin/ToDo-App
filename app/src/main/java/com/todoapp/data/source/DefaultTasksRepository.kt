@@ -63,7 +63,7 @@ class DefaultTasksRepository constructor(
 
             if (remoteTasks is Success) {
                 // Real apps might want to do a proper sync.
-                tasksLocalDataSource.deleteAllTasks()
+//                tasksLocalDataSource.deleteAllTasks()
                 remoteTasks.data.forEach { task ->
                     tasksLocalDataSource.saveTask(task)
                 }
