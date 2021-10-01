@@ -38,16 +38,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    //dataBinding {
-    //    enabled = true
-    //    enabledForTests = true
-    //}
-    buildFeatures {
-        dataBinding true
+    dataBinding {
+        enabled = true
+        enabledForTests = true
     }
+//    buildFeatures {
+//        dataBinding true
+//    }
     // Always show the result of every unit test when running via command line, even if it passes.
     testOptions.unitTests {
         includeAndroidResources = true
+        returnDefaultValues = true
     }
 }
 
@@ -78,10 +79,10 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion" //
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion" //
-    implementation "androidx.test:core:$androidXTestCoreVersion"
-    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
-
-    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation "androidx.test:core:$androidXTestCoreVersion" //
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion" //
+    implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion" //
+    implementation "androidx.multidex:multidex:$multidexVersion" //
 
 
     // Dependencies for local unit tests
@@ -91,7 +92,7 @@ dependencies {
     testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion" //
     testImplementation "org.robolectric:robolectric:$robolectricVersion" //
     testImplementation"androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion" //
-    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion" //
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion" //
 
 
@@ -104,6 +105,7 @@ dependencies {
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion" //
     androidTestImplementation "org.mockito:mockito-core:$mockitoVersion" //
     androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion" //
+    androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion" //
 
 
 }
