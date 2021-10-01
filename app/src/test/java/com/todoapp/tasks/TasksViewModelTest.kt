@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.todoapp.Event
+import com.todoapp.MainCoroutineRule
 import com.todoapp.R
 import com.todoapp.data.Task
 import com.todoapp.data.source.FakeTestRepository
@@ -26,18 +27,8 @@ class TasksViewModelTest{
 
     // for swapping the Dispatcher.MAIN with testCoroutineDispatcher
     // to avoid error like Dispatcher.MAINLOOPER is not initialized
-    val testDispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
-
-    @Before
-    fun setupDispatcher() {
-        Dispatchers.setMain(testDispatcher)
-    }
-
-    @After
-    fun tearDownDispatcher() {
-        Dispatchers.resetMain()
-        testDispatcher.cleanupTestCoroutines()
-    }
+    @get:Rule
+    var mainCoroutineRule = MainCoroutineRule()
 
     // Use a fake repository to be injected into the viewmodel
     private lateinit var tasksRepository: FakeTestRepository

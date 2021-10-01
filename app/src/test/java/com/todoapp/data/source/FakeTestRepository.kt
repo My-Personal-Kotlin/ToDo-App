@@ -103,7 +103,6 @@ class FakeTestRepository : TasksRepository {
         refreshTasks()
     }
 
-
     fun addTasks(vararg tasks: Task) {
         for (task in tasks) {
             tasksServiceData[task.id] = task
