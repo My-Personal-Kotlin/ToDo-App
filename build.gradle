@@ -3,6 +3,7 @@ buildscript {
 
     ext.kotlinVersion = '1.6.0-M1' // l
     ext.navigationVersion = "2.4.0-alpha09" // l
+    ext.googleServicesVersion = "4.3.10"
 
     repositories {
         google()
@@ -13,7 +14,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:7.0.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
-
+        classpath "com.google.gms:google-services:$googleServicesVersion"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -27,7 +28,7 @@ task clean(type: Delete) {
 ext {
     // Sdk and tools
     // Support library and architecture components support minSdk 14 and above.
-    minSdkVersion = 14
+    minSdkVersion = 16
     targetSdkVersion = 30
     compileSdkVersion = 31
 
@@ -58,4 +59,5 @@ ext {
     timberVersion = '5.0.1' // l
     truthVersion = '0.44'
     multidexVersion = '2.0.1'
+    firebaseBomVersion = '28.4.1' // l
 }

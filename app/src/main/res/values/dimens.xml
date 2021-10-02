@@ -10,4 +10,8 @@
     <dimen name="header_height">192dp</dimen>
     <dimen name="header_padding">16dp</dimen>
     <dimen name="header_image_width">100dp</dimen>
+
+    <dimen name="text_margin">20dp</dimen>
+    <dimen name="text_padding">10dp</dimen>
+    <dimen name="button_text_size">20sp</dimen>
 </resources>

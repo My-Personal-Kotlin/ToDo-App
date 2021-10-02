@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/tasks_fragment_dest">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/task_detail_fragment_dest"
@@ -65,4 +66,22 @@
     <argument
         android:name="userMessage"
         android:defaultValue="0" />
+
+    <!--  FireBase Framents Navigation  -->
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.todoapp.firebase.MainFragment"
+        android:label="MainFragment">
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.todoapp.firebase.SettingsFragment"
+        android:label="fragment_settings">
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.todoapp.firebase.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login"/>
 </navigation>
