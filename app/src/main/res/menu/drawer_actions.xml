@@ -9,4 +9,8 @@
         android:id="@id/statistics_fragment_dest"
         android:icon="@drawable/ic_statistics"
         android:title="@string/statistics_title" />
+    <item
+        android:id="@id/mainActivity"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/logout_title" />
 </menu>

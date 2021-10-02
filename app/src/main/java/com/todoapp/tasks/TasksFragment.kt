@@ -2,11 +2,14 @@ package com.todoapp.tasks
 
 import android.os.Bundle
 import android.view.*
+import androidx.annotation.NonNull
+import androidx.annotation.Nullable
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.firebase.ui.auth.AuthUI
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.todoapp.EventObserver
@@ -17,6 +20,12 @@ import com.todoapp.databinding.TasksFragBinding
 import com.todoapp.util.setupRefreshLayout
 import com.todoapp.util.setupSnackbar
 import timber.log.Timber
+import androidx.navigation.NavDestination
+
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.google.android.material.navigation.NavigationView
+
 
 /**
  * Display a grid of [Task]s. User can choose to view all, active or completed tasks.

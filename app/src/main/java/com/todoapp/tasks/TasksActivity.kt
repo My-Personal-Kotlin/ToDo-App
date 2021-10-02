@@ -31,19 +31,19 @@ class TasksActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.tasks_act)
-//        setupNavigationDrawer()
+        setupNavigationDrawer()
         setSupportActionBar(findViewById(R.id.toolbar))
-//
-//        val navController: NavController = findNavController(R.id.nav_host_fragment)
-//
-//        appBarConfiguration =
-//            AppBarConfiguration.Builder(R.id.tasks_fragment_dest, R.id.statistics_fragment_dest)
-//                .setOpenableLayout(drawerLayout)
-//                .build()
-//
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//
-//        findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController)
+
+        val navController: NavController = findNavController(R.id.nav_host_fragment)
+
+        appBarConfiguration =
+            AppBarConfiguration.Builder(R.id.tasks_fragment_dest, R.id.statistics_fragment_dest)
+                .setOpenableLayout(drawerLayout)
+                .build()
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {

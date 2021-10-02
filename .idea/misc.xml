@@ -19,6 +19,8 @@
         <entry key="app/src/main/res/drawable/ic_statistics_24dp.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/drawable/ic_verified_user_96dp.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/drawable/list_completed_touch_feedback.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/outline_logout_20.xml" value="0.16302083333333334" />
+        <entry key="app/src/main/res/drawable/outline_logout_24.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/drawable/touch_feedback.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/font/opensans_font.xml" value="0.22239583333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />

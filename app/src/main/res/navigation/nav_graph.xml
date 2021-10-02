@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
-
+    app:startDestination="@id/tasks_fragment_dest">
     <fragment
         android:id="@+id/task_detail_fragment_dest"
         android:name="com.todoapp.taskdetail.TaskDetailFragment"
@@ -63,25 +62,21 @@
             app:destination="@id/tasks_fragment_dest"
             />
     </fragment>
+
     <argument
         android:name="userMessage"
         android:defaultValue="0" />
 
-    <!--  FireBase Framents Navigation  -->
-
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.todoapp.firebase.MainFragment"
-        android:label="MainFragment">
-    </fragment>
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.todoapp.firebase.SettingsFragment"
-        android:label="fragment_settings">
-    </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
+        android:id="@+id/mainActivity"
         android:name="com.todoapp.firebase.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login"/>
+        android:label="LoginFragment"
+        >
+        <argument
+            android:name="logout"
+            app:argType="integer"
+            android:defaultValue="0"
+            />
+    </fragment>
+
 </navigation>
